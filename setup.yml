@@ -36,6 +36,12 @@
         state: present
       become: yes
 
+    - name: "disable bios beep"
+      copy:
+        dest: $HOME/.profile
+        content: |
+          xset -b
+
     roles:
     - xfce-perchannel-xml
     - xfce-whisker
