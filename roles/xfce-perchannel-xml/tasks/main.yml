@@ -4,4 +4,4 @@
     src: "{{ item }}" 
     dest: $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
   with_fileglob:
-    - ./roles/xfce-files/files/*
+    - ./roles/xfce-perchannel-xml/files/*
