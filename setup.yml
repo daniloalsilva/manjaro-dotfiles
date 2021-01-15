@@ -12,9 +12,9 @@
       register: aur_enabled 
       become: yes
 
-    - name: Update Pamac
+    - name: Update Pamac - do not wait
       shell:
-        cmd: yes | pamac update
+        cmd: yes | pamac update &
       become: yes
       when: aur_enabled
 
