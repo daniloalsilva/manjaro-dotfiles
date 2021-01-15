@@ -1,0 +1,7 @@
+---
+- name: replace xfce dotfiles
+  copy: 
+    src: "{{ item }}" 
+    dest: $HOME/.config/xfce4/panel/
+  with_fileglob:
+    - ./roles/xfce-whisker/files/*
