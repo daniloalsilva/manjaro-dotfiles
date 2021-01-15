@@ -36,6 +36,11 @@
         state: present
       become: yes
 
+    - name: "install pt-br spelling check"
+      package:
+        name: hunspell-pt_br
+        state: present
+
     - name: "disable bios beep"
       copy:
         dest: $HOME/.profile
