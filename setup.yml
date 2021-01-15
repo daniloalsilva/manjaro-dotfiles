@@ -3,6 +3,20 @@
     hosts: localhost
     connection: local 
     tasks:
+    
+    - name: Enable AUR
+      replace:
+        path: /etc/pamac.conf
+        regexp: '#EnableAUR'
+        replace: 'EnableAUR'
+      register: aur_enabled 
+      become: yes
+
+    - name: Update Pamac
+      shell:
+        cmd: pamac update
+      become: yes
+      when: aur_enabled
 
     - name: "install vim"
       package:
