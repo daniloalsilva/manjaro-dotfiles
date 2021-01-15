@@ -14,7 +14,7 @@
 
     - name: Force update pamac conf
       shell:
-        cmd: yes | pamac checkupdate
+        cmd: yes | sudo pamac update --no-confirm
       become: yes
       when: aur_enabled.changed
 
@@ -40,6 +40,7 @@
       package:
         name: hunspell-pt_br
         state: present
+      become: yes
     
     - name: install xcape (super btn fix)
       package:
@@ -52,7 +53,7 @@
         dest: $HOME/.profile
         content: |
           xset -b
-
+    
     roles:
     - xfce-perchannel-xml
     - xfce-whisker
