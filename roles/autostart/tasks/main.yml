@@ -1,0 +1,7 @@
+---
+- name: replace autostart files
+  copy: 
+    src: "{{ item }}" 
+    dest: $HOME/.config/autostart/
+  with_fileglob:
+    - ./roles/autostart/files/*
