@@ -40,6 +40,12 @@
       package:
         name: hunspell-pt_br
         state: present
+    
+    - name: install xcape (super btn fix)
+      package:
+        name: xcape
+        state: present
+      become: yes
 
     - name: "disable bios beep"
       copy:
@@ -50,3 +56,4 @@
     roles:
     - xfce-perchannel-xml
     - xfce-whisker
+    - autostart
