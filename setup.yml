@@ -14,7 +14,7 @@
 
     - name: Update Pamac
       shell:
-        cmd: pamac update
+        cmd: yes | pamac update
       become: yes
       when: aur_enabled
 
