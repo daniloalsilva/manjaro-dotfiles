@@ -16,7 +16,7 @@
       shell:
         cmd: yes | pamac update &
       become: yes
-      when: aur_enabled
+      when: aur_enabled.changed
 
     - name: "install vim"
       package:
