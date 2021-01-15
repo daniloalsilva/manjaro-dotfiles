@@ -2,8 +2,8 @@
 sudo ls > /dev/null
 
 # install ansible
-yes | pip install ansible
+yes | sudo pip install ansible
 
-# call playbooks (must be runned with root)
+# call playbooks
 ansible-playbook setup.yml
 
