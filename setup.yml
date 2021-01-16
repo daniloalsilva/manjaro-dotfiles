@@ -9,7 +9,7 @@
         path: /etc/pamac.conf
         regexp: '#EnableAUR'
         replace: 'EnableAUR'
-      register: aur_enabled 
+      register: aur_enabled
       become: yes
 
     - name: Force update pamac conf
@@ -57,3 +57,4 @@
     - xfce-perchannel-xml
     - xfce-whisker
     - autostart
+    - dockbarx
