@@ -1,19 +1,28 @@
 ---
-- name: install dockbarx
-  package:
-    name: dockbarx
-    state: present
-  become: yes
-  register: dockbarx
+# - name: install dockbarx
+#   package:
+#     name: dockbarx
+#     state: present
+#   become: yes
+#   register: dockbarx
 
-- name: install dockbarx plugin
-  package:
-    name: dockbarx-plugin
-    state: present
+# - name: install dockbarx plugin
+#   package:
+#     name: dockbarx-plugin
+#     state: present
+#   become: yes
+#   register: dockbarx_plugin
+#   when: dockbarx
+
+- name: validate dockbarx folder
+  stat:
+    path: $HOME/.config/gconf/apps/dockbarx/
+  register: dockbarx_folder
+
+- name: install dockbarx
+  shell: pamac install dockbarx dockbarx-plugin
   become: yes
-  register: dockbarx_plugin
-  when: dockbarx
-  
+
 - name: copy dockbarx config file
   copy:
     dest: $HOME/.config/gconf/apps/dockbarx/%gconf.xml

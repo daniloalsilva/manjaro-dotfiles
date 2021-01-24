@@ -42,7 +42,7 @@
         state: present
       become: yes
     
-    - name: install xcape (super btn fix)
+    - name: "install xcape (super btn fix)"
       package:
         name: xcape
         state: present
