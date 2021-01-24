@@ -22,7 +22,7 @@
 - name: install dockbarx
   shell: pamac install dockbarx dockbarx-plugin
   become: yes
-  when: dockbarx_folder
+  when: dockbarx_folder.stat.exists is false
   register: dockbarx_plugin
 
 - name: copy dockbarx config file
