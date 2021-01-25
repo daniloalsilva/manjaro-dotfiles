@@ -20,7 +20,7 @@
   register: dockbarx_folder
 
 - name: install dockbarx
-  shell: pamac install dockbarx dockbarx-plugin
+  shell: pamac install dockbarx xfce4-dockbarx-plugin --no-confim
   become: yes
   when: dockbarx_folder.stat.exists is false
   register: dockbarx_plugin
