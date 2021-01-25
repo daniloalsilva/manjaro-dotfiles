@@ -14,15 +14,9 @@
 #   register: dockbarx_plugin
 #   when: dockbarx
 
-- name: validate dockbarx folder
-  stat:
-    path: $HOME/.config/gconf/apps/dockbarx/
-  register: dockbarx_folder
-
 - name: install dockbarx
   shell: pamac install dockbarx xfce4-dockbarx-plugin --no-confim
   become: yes
-  when: dockbarx_folder.stat.exists is false
   register: dockbarx_plugin
 
 - name: copy dockbarx config file
