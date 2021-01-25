@@ -4,50 +4,6 @@
     connection: local 
     tasks:
     
-    - name: Enable AUR
-      replace:
-        path: /etc/pamac.conf
-        regexp: '#EnableAUR'
-        replace: 'EnableAUR'
-      register: aur_enabled
-      become: yes
-
-    - name: Force update pamac conf
-      shell:
-        cmd: yes | sudo pamac update --no-confirm
-      become: yes
-      when: aur_enabled.changed
-
-    - name: "install vim"
-      package:
-        name: vim
-        state: present
-      become: yes
-
-    - name: "install vscode"
-      package:    
-        name: vscode
-        state: present
-      become: yes
-
-    - name: "install chromium"
-      package:
-        name: chromium
-        state: present
-      become: yes
-
-    - name: "install pt-br spelling check"
-      package:
-        name: hunspell-pt_br
-        state: present
-      become: yes
-    
-    - name: "install xcape (super btn fix)"
-      package:
-        name: xcape
-        state: present
-      become: yes
-
     - name: "disable bios beep"
       copy:
         dest: $HOME/.profile
@@ -55,6 +11,8 @@
           xset -b
     
     roles:
+    - repo-update
+    - default-packages
     - xfce-perchannel-xml
     - xfce-whisker
     - autostart
