@@ -1,0 +1,30 @@
+---
+- name: "install vim"
+  package:
+    name: vim
+    state: present
+  become: yes
+
+- name: "install vscode"
+  package:    
+    name: vscode
+    state: present
+  become: yes
+
+- name: "install chromium"
+  package:
+    name: chromium
+    state: present
+  become: yes
+
+- name: "install pt-br spelling check"
+  package:
+    name: hunspell-pt_br
+    state: present
+  become: yes
+
+- name: "install xcape (super btn fix)"
+  package:
+    name: xcape
+    state: present
+  become: yes

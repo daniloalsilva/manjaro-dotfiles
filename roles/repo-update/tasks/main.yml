@@ -1,0 +1,19 @@
+---  
+- name: Enable AUR
+  replace:
+    path: /etc/pamac.conf
+    regexp: '#EnableAUR'
+    replace: 'EnableAUR'
+  register: aur_enabled
+  become: yes
+
+- name: Force update pamac conf
+  shell:
+    cmd: yes | sudo pamac update --no-confirm
+  become: yes
+  when: aur_enabled.changed
+
+- name: 
+  shell: 
+    cmd: pacman -Sy --noconfirm
+  become: yes
